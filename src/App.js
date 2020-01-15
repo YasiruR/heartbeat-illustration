@@ -36,13 +36,14 @@ class App extends Component {
   getDrivers() {
         //   axios.get("/locations.json").then(res => this.setState({drivers: res.data.data}))
 
-      // return new Promise(resolve => {
-      //    axios.get('http://localhost:9000/drivers/current').then(res => {
-      //       console.log('response : ', res.data)
-      //       this.setState({drivers: res.data.drivers, initialDrivers: res.data.drivers});
-      //       resolve();
-      //    });
-      // });
+      //todo: the following url should be changed to get driver data
+      return new Promise(resolve => {
+         axios.get('http://localhost:9000/drivers/current').then(res => {
+            console.log('response : ', res.data)
+            this.setState({drivers: res.data.drivers, initialDrivers: res.data.drivers});
+            resolve();
+         });
+      });
   }
 
   getInitialDrivers() {
